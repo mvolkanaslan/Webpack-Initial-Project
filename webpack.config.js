@@ -4,7 +4,7 @@ module.exports = {
     entry : ["@babel/polyfill","./src/js/index.js"],//Packaging the index.js with the Polyfill package for transfer the ES6+ code to ES5
     output:{
         path: path.join(__dirname,"dist"),
-        filename:'js/bundle.js'
+        filename:'js/bundle.js',
     },
     devServer:{
         static: {
@@ -16,7 +16,7 @@ module.exports = {
             //this rule for only javascript packaging
             {
                 test: /\.m?js$/,
-                exclude: /(node_modules)/,
+                exclude: /(node_modules|bower_components)/,
                 use:{
                     loader:"babel-loader",
                     options:{
